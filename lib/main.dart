@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(ProviderScope(child: MyApp()));
+  // create a dependency injection global state container
+  // perists state across widgets no need to pass data manually
+  // ensure efficient state updates, only rebuilding affected widgets
+  runApp(ProviderScope(child: MyApp())); // manage providers
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +34,7 @@ class MyAppState {
   GlobalKey? historyListKey;
 }
 
+// managet complex state updates and ensure immutability
 class MyAppStateNotifier extends StateNotifier<MyAppState> {
   MyAppStateNotifier() : super(MyAppState());
 
